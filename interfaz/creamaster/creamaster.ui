@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>432</width>
+    <height>386</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Bienvenido a -Martin Electronic's-</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../recursos/recursos.qrc">
+    <normaloff>:/iconos/iconos/Logo.png</normaloff>:/iconos/iconos/Logo.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+	background-color: rgb(8, 42, 73);
+	color: rgb(255,255,255);
+	font: 700 12pt &quot;Segoe UI&quot;;
+}
+QPushButton: hover {
+	background-color: rgb(76, 110, 184)
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="mensaje">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>190</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnsig">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>240</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>siguiente</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cont">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>100</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::EchoMode::Password</enum>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Contraseña</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkvercont">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>210</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ver contraseña</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>40</y>
+      <width>271</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Establezca una contraseña maestra&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="cont_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>150</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::EchoMode::Password</enum>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Confirmar contraseña</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btncerr">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>280</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Cerrar</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>432</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>cont</tabstop>
+  <tabstop>cont_2</tabstop>
+  <tabstop>checkvercont</tabstop>
+  <tabstop>btnsig</tabstop>
+  <tabstop>btncerr</tabstop>
+ </tabstops>
+ <resources>
+  <include location="../../recursos/recursos.qrc"/>
+ </resources>
+ <connections/>
+</ui>
