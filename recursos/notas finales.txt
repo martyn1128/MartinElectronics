@@ -1,0 +1,17 @@
+¡INSTALACIÓN COMPLETADA CON ÉXITO!
+
+Gracias por elegir Martin Electronic's para la gestión de tu taller.
+
+Instrucciones de inicio:
+    1. Localiza el icono de "Martin Electronic's" en tu escritorio. o menu de inicio
+    2. Al abrirlo por primera vez, el sistema configurará los archivos necesarios.
+    3. Credenciales de acceso:
+        - Al ejecutar por primera vez el programa en un pc le solicitará
+          que establezca una contraseña maestra que le servirá para crear usuarios
+        - Una vez establecida usted podrá crear usuarios nuevos dando clic en
+          el botón "registrar"
+
+Soporte Técnico:
+Si encuentras algún error o necesitas ayuda con la configuración, puedes contactar al desarrollador a través del correo:
+    martyn.luisl@gmail.com
+    📱 WhatsApp: +52 351-188-0980

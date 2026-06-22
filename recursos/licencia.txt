@@ -1,0 +1,10 @@
+ACUERDO DE LICENCIA DE USUARIO FINAL - Martin Electronic's
+
+Al instalar este software, usted acepta los siguientes términos:
+
+1. PROPIEDAD: Martin Electronic's es un sistema desarrollado por Luis Martin Lopez Montes. La propiedad intelectual pertenece al desarrollador.
+2. USO: Se concede una licencia de uso personal y profesional para la gestión de talleres de electrónica.
+3. RESPONSABILIDAD: El desarrollador no se hace responsable por la pérdida de datos derivada del mal uso del sistema o fallos en el equipo donde se instale. Se recomienda realizar respaldos periódicos de la base de datos ubicada en AppData.
+4. MODIFICACIONES: Queda prohibida la ingeniería inversa o redistribución de este ejecutable sin autorización previa.
+
+Si no está de acuerdo con estos términos, cancele la instalación ahora.

@@ -1,0 +1,26 @@
+INFORMACIÓN IMPORTANTE ANTES DE INSTALAR Martin Electronic's V1.1
+
+Requisitos del Sistema:
+    - Sistema Operativo: Windows 10 o Windows 11 (64 bits).
+    - Espacio en disco: 150 MB aproximadamente.
+    - Resolución de pantalla recomendada: 720x480 o superior.
+
+Notas de Instalación:
+    - El sistema utiliza una base de datos local SQLite. No requiere conexión a internet ni servidores externos para funcionar.
+    - Si cuenta con un antivirus activo, es posible que reciba una alerta al ser un ejecutable nuevo. Puede permitir la ejecución con confianza.
+    - La base de datos se creará automáticamente en la carpeta de datos de usuario (%AppData%) al iniciar la aplicación por primera vez.
+Actualizacion a v_1.1:
+    Errores corregidos:
+        * Repuestos de entregas
+        * No hay manera de entregar sin reparar
+        * El campo servicio técnico no actualiza su valor en revisiones
+        * Error ortográfico en revisiones Y confirmar revisión
+        * Botón guardar empresa no guarda
+        * Al seleccionar equipo desde clientes fecha y estatus salen invertidos en el registro
+        * Al imprimir imprime otro registro si no se guarda antes
+        * datos movidos en reporte de entrada
+
+    Mejoras:
+        * se agregó la función de poder escribir la ods en registros para mejorar la navegación entre
+          registros
+        * se agregó el botón "Entregar sin reparar" en reparaciones
