@@ -25,6 +25,10 @@
 }
 QPushButton: hover {
 	background-color: rgb(76, 110, 184)
+}
+QLabel {
+	color: rgb(255,0,0)
+	 text-aling: center; 
 }</string>
   </property>
   <widget class="QLabel" name="mensaje">
@@ -37,10 +41,13 @@ QPushButton: hover {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLineEdit" name="email">
@@ -300,6 +307,19 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>nombre</tabstop>
+  <tabstop>usuario</tabstop>
+  <tabstop>sexo</tabstop>
+  <tabstop>email</tabstop>
+  <tabstop>fechna</tabstop>
+  <tabstop>tipo</tabstop>
+  <tabstop>cont</tabstop>
+  <tabstop>cont_2</tabstop>
+  <tabstop>checkvercont</tabstop>
+  <tabstop>btnregistrarse</tabstop>
+  <tabstop>btncancelar</tabstop>
+ </tabstops>
  <resources>
   <include location="../../recursos/recursos.qrc"/>
  </resources>

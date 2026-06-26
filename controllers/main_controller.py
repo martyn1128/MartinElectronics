@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QMainWindow, QMessageBox
+from PySide6.QtGui import QIcon
 
 from controllers.reparaciones_controller import ReparacionesController
 from controllers.registros_controller import RegistrosController
@@ -24,6 +25,8 @@ class MainController(QMainWindow):
         self.conexion = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        # Asegura que la ventana principal tenga el icono (para la barra de tareas en Windows)
+        self.setWindowIcon(QIcon(":/iconos/iconos/Logo.png"))
         self.user = user
         self.registros = RegistrosController(self)
         self.clientescontroller = ClientesController(self)

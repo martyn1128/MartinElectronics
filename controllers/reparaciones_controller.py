@@ -1,10 +1,12 @@
 import re
 
 from PySide6.QtCore import Qt, QDateTime, QTimer
+from PySide6.QtGui import QIcon
 from PySide6.QtSql import QSqlQueryModel
-from PySide6.QtWidgets import QTableView, QTableWidgetItem, QMessageBox
+from PySide6.QtWidgets import QTableView, QTableWidgetItem, QMessageBox, QMenu
 
 from models.registros_model import RegistroModel
+from models.registros_ocultos import FiltroModel
 from models.reparacion_model import ReparacionModel
 from models.usarios import UsuariosModel
 
@@ -30,15 +32,21 @@ class ReparacionesController:
         self.vprin.garantia.valueChanged.connect(self.cvprin.cambio_en_rep)
         self.vprin.fecha_rep.textChanged.connect(self.cvprin.cambio_en_rep)
         self.modelrecive = QSqlQueryModel()
-        self.vprin.tableView.setModel(self.modelrecive)
+        self.filtrorecive = FiltroModel(self.vprin)
+        self.filtrorecive.setSourceModel(self.modelrecive)
+        self.vprin.tableView.setModel(self.filtrorecive)
         self.vprin.tableView.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows)
         self.vprin.tableView.clicked.connect(self.cvprin.desconecta)
         self.vprin.tableView.clicked.connect(lambda :self.rellena_reparacion())
+        self.vprin.tableView.customContextMenuRequested.connect(self.abrir_menu)
         self.modelrepa = QSqlQueryModel()
-        self.vprin.tableView_2.setModel(self.modelrepa)
+        self.filtrorepa = FiltroModel(self.vprin)
+        self.filtrorepa.setSourceModel(self.modelrepa)
+        self.vprin.tableView_2.setModel(self.filtrorepa)
         self.vprin.tableView_2.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows)
         self.vprin.tableView_2.clicked.connect(self.cvprin.desconecta)
         self.vprin.tableView_2.clicked.connect(lambda: self.rellena_reparacion(True))
+        self.vprin.tableView_2.customContextMenuRequested.connect(self.abrir_menu_2)
         self.vprin.garantia.valueChanged.connect(self.garantiafech)
         self.vprin.repuestos.cellChanged.connect(self.cambiorepuestos)
         self.vprin.anadir.clicked.connect(self.nuevo_repuesto)
@@ -50,6 +58,56 @@ class ReparacionesController:
         self.vprin.fecharep.dateChanged.connect(self.cambio_fecha)
         self.vprin.hoy.clicked.connect(self.fechahoy)
         self.vprin.btnentsinrep.clicked.connect(self.entregarsinreparar)
+        self.vprin.checkmostocult.toggled.connect(self.filtrorecive.actualizar_ocultos)
+        self.vprin.checkmostocult_2.toggled.connect(self.filtrorepa.actualizar_ocultos)
+
+    def abrir_menu(self, posicion):
+        index = self.vprin.tableView.indexAt(posicion)
+        if not index.isValid():
+            return
+
+        menu = QMenu()
+        accion_mostrar = menu.addAction("Mostrar")
+        accion_ocultar = menu.addAction("Ocultar")
+
+        idr = self.vprin.tableView.selectedIndexes()[0].data()
+        if self.filtrorecive.esta_oculto(idr):
+            accion_ocultar.setEnabled(False)
+            accion_mostrar.setEnabled(True)
+        else:
+            accion_ocultar.setEnabled(True)
+            accion_mostrar.setEnabled(False)
+
+        # Ejecutar menú
+        accion = menu.exec(self.vprin.tableView.viewport().mapToGlobal(posicion))
+        if accion == accion_ocultar:
+            self.filtrorecive.agregar(idr)
+        elif accion == accion_mostrar:
+            self.filtrorecive.borrar(idr)
+
+    def abrir_menu_2(self, posicion):
+        index = self.vprin.tableView_2.indexAt(posicion)
+        if not index.isValid():
+            return
+
+        menu = QMenu()
+        accion_mostrar = menu.addAction("Mostrar")
+        accion_ocultar = menu.addAction("Ocultar")
+
+        idr = self.vprin.tableView_2.selectedIndexes()[0].data()
+        if self.filtrorepa.esta_oculto(idr):
+            accion_ocultar.setEnabled(False)
+            accion_mostrar.setEnabled(True)
+        else:
+            accion_ocultar.setEnabled(True)
+            accion_mostrar.setEnabled(False)
+
+        # Ejecutar menú
+        accion = menu.exec(self.vprin.tableView.viewport().mapToGlobal(posicion))
+        if accion == accion_ocultar:
+            self.filtrorepa.agregar(idr)
+        elif accion == accion_mostrar:
+            self.filtrorepa.borrar(idr)
 
     # --REPARACIONES--------------------------------------------------------------------------------------------------
     def carga_tecnicos(self):
@@ -151,7 +209,7 @@ class ReparacionesController:
         self.vprin.servtec.setValue(servtec)
         self.vprin.servtec.blockSignals(False)
 
-    def rellena_reparacion(self, rep=None):
+    def rellena_reparacion(self, rep=None, rp=0):
         self.carga_tecnicos()
         self.ant = 2
         self.vprin.diagnostico.blockSignals(True)
@@ -185,7 +243,7 @@ class ReparacionesController:
                 self.vprin.stackinfrep.setCurrentIndex(1)
                 self.vprin.btnconfirmar.setText('Confirmar reparación')
                 self.ideq = equipo[0].data()
-            """else:
+            else:
                 equipo = rep
                 self.vprin.repequipo.setText(str(equipo[2]))
                 self.vprin.repmarca.setText(str(equipo[3]))
@@ -195,16 +253,12 @@ class ReparacionesController:
                 self.vprin.repinfadi.setText(str(equipo[8]))
                 self.vprin.stackreparaciones.setCurrentIndex(1)
                 self.ideq = equipo[0]
-                print(self.vprin.total.value())
-                if self.vprin.total.value():
+                self.rellena_inforep(self.ideq)
+                if rp:
                     self.vprin.btnconfirmar.setText('Confirmar reparación')
-                    self.vprin.repant.setEnabled(True)
-                    self.vprin.repsig.setEnabled(True)
-                    self.rellena_inforep(equipo[0])
-                    self.vprin.stackinfrep.setCurrentIndex(1)
                 else:
                     self.vprin.btnconfirmar.setText('Confirmar revisión')
-                    self.vprin.stackinfrep.setCurrentIndex(0)"""
+                    self.vprin.stackinfrep.setCurrentIndex(0)
         else:
             self.vprin.stackreparaciones.setCurrentIndex(1)
             self.vprin.stackinfrep.setCurrentIndex(0)
@@ -226,6 +280,7 @@ class ReparacionesController:
         self.cvprin.cambiorep = False
 
     def rellena_inforep(self, ide=None):
+        idrep = None
         self.vprin.fecha_rep.blockSignals(True)
         self.vprin.fecha_rep.setText('')
         self.vprin.fecha_rep.blockSignals(False)

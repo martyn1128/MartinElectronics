@@ -91,13 +91,14 @@ class EntregasController:
 
             self.modelentregas.appendRow(item)
 
-    def entregar(self, index):
+    def entregar(self, index=None, idreg=None):
         self.carga_tecnicos()
         self.vprin.entregas.setTabEnabled(1, True)
         self.vprin.entregas.setCurrentIndex(1)
-        self.vprin.fecha_rep.setText('')
+        self.vprin.fecha_repe.setText('')
         self.vprin.garantiae.setValue(0)
-        idreg = index.data(Qt.ItemDataRole.UserRole)
+        if index:
+            idreg = index.data(Qt.ItemDataRole.UserRole)
         self.imp = ReparacionModel().obtener_por_reg(idreg)
         rep = self.imp[:8]
         self.vprin.fechagarantiae.clear()

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'inicio.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.10.2
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -34,6 +34,9 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:hover {\n"
 "	background-color: rgb(76, 110, 184)\n"
+"}\n"
+"QLabel{\n"
+"	color: rgb(255, 0, 0);\n"
 "}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -50,6 +53,7 @@ class Ui_MainWindow(object):
         self.cont.setStyleSheet(u"font: 700 12pt \"Segoe UI\";")
         self.cont.setEchoMode(QLineEdit.EchoMode.Password)
         self.cont.setDragEnabled(False)
+        self.cont.setClearButtonEnabled(True)
         self.label_5 = QLabel(self.centralwidget)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(210, 80, 171, 161))
@@ -60,13 +64,14 @@ class Ui_MainWindow(object):
         self.btniniciar.setObjectName(u"btniniciar")
         self.btniniciar.setGeometry(QRect(210, 460, 171, 31))
         self.btniniciar.setStyleSheet(u"")
+        self.btniniciar.setAutoDefault(True)
         self.checkvercont = QCheckBox(self.centralwidget)
         self.checkvercont.setObjectName(u"checkvercont")
         self.checkvercont.setGeometry(QRect(240, 390, 121, 20))
         self.mensaje = QLabel(self.centralwidget)
         self.mensaje.setObjectName(u"mensaje")
         self.mensaje.setGeometry(QRect(170, 420, 241, 20))
-        self.mensaje.setStyleSheet(u"color: rgb(255, 0, 0);")
+        self.mensaje.setStyleSheet(u"")
         self.mensaje.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.btnregistrarse = QPushButton(self.centralwidget)
         self.btnregistrarse.setObjectName(u"btnregistrarse")
@@ -77,11 +82,14 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
         QWidget.setTabOrder(self.usuario, self.cont)
-        QWidget.setTabOrder(self.cont, self.checkvercont)
-        QWidget.setTabOrder(self.checkvercont, self.btniniciar)
-        QWidget.setTabOrder(self.btniniciar, self.btnregistrarse)
+        QWidget.setTabOrder(self.cont, self.btniniciar)
+        QWidget.setTabOrder(self.btniniciar, self.checkvercont)
+        QWidget.setTabOrder(self.checkvercont, self.btnregistrarse)
 
         self.retranslateUi(MainWindow)
+
+        self.btniniciar.setDefault(False)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi

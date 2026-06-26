@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'registrod.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.10.2
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -35,11 +35,16 @@ class Ui_Dialog(object):
 "}\n"
 "QPushButton: hover {\n"
 "	background-color: rgb(76, 110, 184)\n"
+"}\n"
+"QLabel {\n"
+"	color: rgb(255,0,0)\n"
+"	 text-aling: center; \n"
 "}")
         self.mensaje = QLabel(Dialog)
         self.mensaje.setObjectName(u"mensaje")
         self.mensaje.setGeometry(QRect(180, 360, 211, 20))
-        self.mensaje.setStyleSheet(u"color: rgb(255, 0, 0);")
+        self.mensaje.setStyleSheet(u"")
+        self.mensaje.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.email = QLineEdit(Dialog)
         self.email.setObjectName(u"email")
         self.email.setGeometry(QRect(20, 310, 221, 31))
@@ -111,6 +116,16 @@ class Ui_Dialog(object):
         self.nombre.setGeometry(QRect(20, 190, 221, 31))
         self.nombre.setStyleSheet(u"border-bottom-color: rgb(0, 0, 0);\n"
 "font: 700 12pt \"Segoe UI\";")
+        QWidget.setTabOrder(self.nombre, self.usuario)
+        QWidget.setTabOrder(self.usuario, self.sexo)
+        QWidget.setTabOrder(self.sexo, self.email)
+        QWidget.setTabOrder(self.email, self.fechna)
+        QWidget.setTabOrder(self.fechna, self.tipo)
+        QWidget.setTabOrder(self.tipo, self.cont)
+        QWidget.setTabOrder(self.cont, self.cont_2)
+        QWidget.setTabOrder(self.cont_2, self.checkvercont)
+        QWidget.setTabOrder(self.checkvercont, self.btnregistrarse)
+        QWidget.setTabOrder(self.btnregistrarse, self.btncancelar)
 
         self.retranslateUi(Dialog)
 

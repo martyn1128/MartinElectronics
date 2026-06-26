@@ -6,10 +6,11 @@ from PySide6.QtGui import QFont
 from PySide6.QtSql import QSqlQueryModel
 from PySide6.QtWidgets import QLineEdit, QCheckBox, QMessageBox, QCompleter, QTableWidgetItem
 
+from controllers.entregas_controller import EntregasController
+from interfaz import registro
 from interfaz.ep_2 import EditaPorcentaje
 from models.clientes import ClienteModel
 from models.equipos import EquipoModel
-from models.qt_db import QtDB
 from models.registros_model import RegistroModel
 from models.reparacion_model import ReparacionModel
 from recursos.reportes.genera_reporte import GeneraReporte
@@ -26,6 +27,7 @@ class RegistrosController:
         self.propred = 50
         self.nuevo_reg = False
         self.eex = None
+        self.ui_edip = None
         self._conectareventos()
 
     def cambio(self):
@@ -92,7 +94,7 @@ class RegistrosController:
         self.vprin.btnnuevocliente.clicked.connect(self.n_cliente)
         self.vprin.rbtneditaclient.clicked.connect(self.redita_cliente)
         self.vprin.btnimprimir.clicked.connect(self.rimprimir)
-        self.vprin.tableViewregistros.doubleClicked.connect(self.lista_registros)
+        self.vprin.tableViewregistros.doubleClicked.connect(self.abrir_registro)
         self.vprin.buscar.clicked.connect(self.busqueda_profunda)
         self.vprin.buscar.clicked.connect(lambda :self.vprin.statusbar.showMessage("Buscando...", 3000))
         self.vprin.fecharep_2.dateChanged.connect(self.cambio_fecha)
@@ -137,7 +139,6 @@ class RegistrosController:
         self.carga_clientes()
         self.rellenar_registro()
 
-
     def carga_clientes(self):
         clientes = ClienteModel().obtener_todos()
 
@@ -157,10 +158,24 @@ class RegistrosController:
         GeneraReporte(datos, self.cvprin).reporte_de_entrada()
         #QDesktopServices.openUrl(QUrl.fromLocalFile(str(datos["equipo"][0]) + ".pdf"))
 
-    def lista_registros(self):
-        self.vprin.tabregistros.setTabEnabled(2, True)
+    def abrir_registro(self):
         fila = self.vprin.tableViewregistros.currentIndex().row()
         contenido = [self.vprin.tableViewregistros.model().index(fila, i).data() for i in range(14)]
+        match contenido[8]:
+            case 'Completado':
+                self.lista_registros(contenido)
+            case 'Pendiente de Revisión':
+                self.vprin.btnreparaciones.click()
+                self.cvprin.reparaciones.rellena_reparacion(contenido)
+            case 'Pendiente de Reparación':
+                self.vprin.btnreparaciones.click()
+                self.cvprin.reparaciones.rellena_reparacion(contenido,1)
+            case 'Pendiente de Entrega':
+                self.vprin.btnentregas.click()
+                self.cvprin.entregascontroller.entregar(idreg=contenido[0])
+
+    def lista_registros(self, contenido):
+        self.vprin.tabregistros.setTabEnabled(2, True)
         self.vprin.equipo_2.setText(contenido[2])
         self.vprin.marca_2.setText(contenido[3])
         self.vprin.modelo_2.setText(contenido[4])
@@ -287,6 +302,7 @@ class RegistrosController:
 
     def rellenar_registro(self, cid=None, id=None, idr = None):
         res2 = None
+        rid = None
         self.nuevo_reg = False
         self.ant = self.aant
         self.aant = 1
@@ -321,55 +337,56 @@ class RegistrosController:
             self.imp = res[self.ind]
             rid, eid, cliente_id, equipo, marca, modelo, serie, problema, accesorios, info_adicional, estatus, fecha_ingreso, user = \
             res[self.ind]
-        self.registro_actual = rid
-        self.equipo_actual = eid
-        self.vprin.equipo.setText(equipo)
-        self.vprin.marca.setText(marca)
-        self.vprin.modelo.setText(modelo)
-        self.vprin.nserie.setText(serie)
-        self.vprin.falla.setText(problema)
-        self.vprin.infadi.blockSignals(True)
-        self.vprin.infadi.setText(info_adicional)
-        self.vprin.infadi.blockSignals(False)
-        self.vprin.fecha.setText(fecha_ingreso)
-        self.vprin.ods.blockSignals(True)
-        self.vprin.ods.setValue(rid)
-        self.vprin.ods.blockSignals(False)
-        self.vprin.restatus.setText(estatus)
-        #self.cvprin.reparaciones.rellena_reparacion(res[self.ind])
-        self.vprin.cableac.setChecked(False)
-        self.vprin.controlr.setChecked(False)
-        self.vprin.eliminador.setChecked(False)
-        self.vprin.base.setChecked(False)
-        self.vprin.basepared.setChecked(False)
-        self.vprin.pilas.setChecked(False)
-        self.vprin.cables.setChecked(False)
-        if accesorios:
-            if 'Cable AC' in accesorios:
-                self.vprin.cableac.setChecked(True)
-            if 'Control Remoto' in accesorios:
-                self.vprin.controlr.setChecked(True)
-            if 'Eliminador' in accesorios:
-                self.vprin.eliminador.setChecked(True)
-            if 'Base,' in accesorios:
-                self.vprin.base.setChecked(True)
-            if 'Base de Pared' in accesorios:
-                self.vprin.basepared.setChecked(True)
-            if 'Pilas' in accesorios:
-                self.vprin.pilas.setChecked(True)
-            if 'Cables' in accesorios:
-                self.vprin.cables.setChecked(True)
-            part = accesorios.split("\n")
-            ot = part.pop()
-            if ot == "Cable AC" or ot == "Control Remoto" or ot == "Eliminador" or ot == "Base" or ot == "Base Pared" or ot == "Plias" or ot == "Cables":
-                pass
+        if rid:
+            self.registro_actual = rid
+            self.equipo_actual = eid
+            self.vprin.equipo.setText(equipo)
+            self.vprin.marca.setText(marca)
+            self.vprin.modelo.setText(modelo)
+            self.vprin.nserie.setText(serie)
+            self.vprin.falla.setText(problema)
+            self.vprin.infadi.blockSignals(True)
+            self.vprin.infadi.setText(info_adicional)
+            self.vprin.infadi.blockSignals(False)
+            self.vprin.fecha.setText(fecha_ingreso)
+            self.vprin.ods.blockSignals(True)
+            self.vprin.ods.setValue(rid)
+            self.vprin.ods.blockSignals(False)
+            self.vprin.restatus.setText(estatus)
+            #self.cvprin.reparaciones.rellena_reparacion(res[self.ind])
+            self.vprin.cableac.setChecked(False)
+            self.vprin.controlr.setChecked(False)
+            self.vprin.eliminador.setChecked(False)
+            self.vprin.base.setChecked(False)
+            self.vprin.basepared.setChecked(False)
+            self.vprin.pilas.setChecked(False)
+            self.vprin.cables.setChecked(False)
+            if accesorios:
+                if 'Cable AC' in accesorios:
+                    self.vprin.cableac.setChecked(True)
+                if 'Control Remoto' in accesorios:
+                    self.vprin.controlr.setChecked(True)
+                if 'Eliminador' in accesorios:
+                    self.vprin.eliminador.setChecked(True)
+                if 'Base,' in accesorios:
+                    self.vprin.base.setChecked(True)
+                if 'Base de Pared' in accesorios:
+                    self.vprin.basepared.setChecked(True)
+                if 'Pilas' in accesorios:
+                    self.vprin.pilas.setChecked(True)
+                if 'Cables' in accesorios:
+                    self.vprin.cables.setChecked(True)
+                part = accesorios.split("\n")
+                ot = part.pop()
+                if ot == "Cable AC" or ot == "Control Remoto" or ot == "Eliminador" or ot == "Base" or ot == "Base Pared" or ot == "Plias" or ot == "Cables":
+                    pass
+                else:
+                    self.vprin.accotro.setText(ot)
+            indice = self.vprin.rnombre.findData(cliente_id, role=Qt.ItemDataRole.UserRole)
+            if indice != -1:
+                self.vprin.rnombre.setCurrentIndex(indice)
             else:
-                self.vprin.accotro.setText(ot)
-        indice = self.vprin.rnombre.findData(cliente_id, role=Qt.ItemDataRole.UserRole)
-        if indice != -1:
-            self.vprin.rnombre.setCurrentIndex(indice)
-        else:
-            self.vprin.rnombre.setCurrentIndex(0)
+                self.vprin.rnombre.setCurrentIndex(0)
 
 
     def nuevo(self):
@@ -453,7 +470,6 @@ class RegistrosController:
             self.vprin.fecha.text(),
             self.cvprin.user[0]
         )
-
         ide = self.vprin.ods.text()
 
         equipo_model = EquipoModel()
@@ -471,9 +487,7 @@ class RegistrosController:
 
             registro_model.insertar((
                         equipo_id,
-                        None,
                         *registro_data,
-                        None
                     ))
             self.long += 1
 

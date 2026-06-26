@@ -24,6 +24,9 @@
 }
 QPushButton:hover {
 	background-color: rgb(76, 110, 184)
+}
+QLabel{
+	color: rgb(255, 0, 0);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -74,6 +77,9 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
     <property name="placeholderText">
      <string>Contraseña</string>
     </property>
+    <property name="clearButtonEnabled">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
@@ -110,6 +116,12 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
     <property name="text">
      <string>Iniciar seción</string>
     </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkvercont">
     <property name="geometry">
@@ -134,7 +146,7 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 0, 0);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -165,8 +177,8 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
  <tabstops>
   <tabstop>usuario</tabstop>
   <tabstop>cont</tabstop>
-  <tabstop>checkvercont</tabstop>
   <tabstop>btniniciar</tabstop>
+  <tabstop>checkvercont</tabstop>
   <tabstop>btnregistrarse</tabstop>
  </tabstops>
  <resources>

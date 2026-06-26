@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'principal.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.10.2
+## Created by: Qt User Interface Compiler version 6.11.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(1044, 674)
+        MainWindow.resize(800, 600)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -400,7 +400,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1458, 116))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1458, 109))
         self.scrollAreaWidgetContents.setStyleSheet(u"QWidget#scrollAreaWidgetContents{\n"
 "	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(8, 42, 73, 114), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
@@ -800,7 +800,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_7 = QWidget()
         self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
-        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 849, 411))
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 603, 355))
         self.verticalLayout_40 = QVBoxLayout(self.scrollAreaWidgetContents_7)
         self.verticalLayout_40.setObjectName(u"verticalLayout_40")
         self.widget_73 = QWidget(self.scrollAreaWidgetContents_7)
@@ -1079,7 +1079,7 @@ class Ui_MainWindow(object):
         self.scrollArea_8.setWidgetResizable(True)
         self.scrollAreaWidgetContents_5 = QWidget()
         self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
-        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 372, 370))
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 288, 402))
         self.formLayout_2 = QFormLayout(self.scrollAreaWidgetContents_5)
         self.formLayout_2.setObjectName(u"formLayout_2")
         self.label_3 = QLabel(self.scrollAreaWidgetContents_5)
@@ -1184,7 +1184,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.accesorios = QWidget()
         self.accesorios.setObjectName(u"accesorios")
-        self.accesorios.setGeometry(QRect(0, 0, 170, 268))
+        self.accesorios.setGeometry(QRect(0, 0, 159, 259))
         self.verticalLayout_17 = QVBoxLayout(self.accesorios)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.cableac = QCheckBox(self.accesorios)
@@ -1570,7 +1570,7 @@ class Ui_MainWindow(object):
         self.scrollArea_5.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, -221, 813, 1157))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 636, 1142))
         self.verticalLayout_37 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.groupBox_11 = QGroupBox(self.scrollAreaWidgetContents_3)
@@ -1879,7 +1879,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem3 = QTableWidgetItem()
         self.repuestos_2.setItem(0, 0, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter);
+        __qtablewidgetitem4.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter)
         self.repuestos_2.setItem(0, 1, __qtablewidgetitem4)
         self.repuestos_2.setObjectName(u"repuestos_2")
         self.repuestos_2.setMinimumSize(QSize(0, 0))
@@ -2078,7 +2078,7 @@ class Ui_MainWindow(object):
         self.scrollArea_6.setWidgetResizable(True)
         self.accesorios_2 = QWidget()
         self.accesorios_2.setObjectName(u"accesorios_2")
-        self.accesorios_2.setGeometry(QRect(0, 0, 230, 268))
+        self.accesorios_2.setGeometry(QRect(0, 0, 159, 259))
         self.verticalLayout_36 = QVBoxLayout(self.accesorios_2)
         self.verticalLayout_36.setObjectName(u"verticalLayout_36")
         self.cableac_2 = QCheckBox(self.accesorios_2)
@@ -2340,9 +2340,48 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_20.addWidget(self.label_4)
 
+        self.widget_81 = QWidget(self.tab)
+        self.widget_81.setObjectName(u"widget_81")
+        self.horizontalLayout_56 = QHBoxLayout(self.widget_81)
+        self.horizontalLayout_56.setObjectName(u"horizontalLayout_56")
+        self.horizontalLayout_56.setContentsMargins(-1, 0, -1, 0)
+        self.filtrar = QCheckBox(self.widget_81)
+        self.filtrar.setObjectName(u"filtrar")
+
+        self.horizontalLayout_56.addWidget(self.filtrar)
+
+        self.btneditafiltro = QToolButton(self.widget_81)
+        self.btneditafiltro.setObjectName(u"btneditafiltro")
+        self.btneditafiltro.setIcon(icon28)
+        self.btneditafiltro.setIconSize(QSize(30, 30))
+        self.btneditafiltro.setPopupMode(QToolButton.ToolButtonPopupMode.DelayedPopup)
+        self.btneditafiltro.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
+        self.btneditafiltro.setAutoRaise(True)
+        self.btneditafiltro.setArrowType(Qt.ArrowType.NoArrow)
+
+        self.horizontalLayout_56.addWidget(self.btneditafiltro)
+
+        self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_56.addItem(self.horizontalSpacer_18)
+
+        self.checkmostocult = QRadioButton(self.widget_81)
+        self.checkmostocult.setObjectName(u"checkmostocult")
+        icon30 = QIcon()
+        icon30.addFile(u":/iconos/iconos/ojo.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.checkmostocult.setIcon(icon30)
+        self.checkmostocult.setIconSize(QSize(25, 25))
+        self.checkmostocult.setChecked(False)
+
+        self.horizontalLayout_56.addWidget(self.checkmostocult)
+
+
+        self.verticalLayout_20.addWidget(self.widget_81)
+
         self.tableView = QTableView(self.tab)
         self.tableView.setObjectName(u"tableView")
         self.tableView.setEnabled(True)
+        self.tableView.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.tableView.setAlternatingRowColors(True)
         self.tableView.horizontalHeader().setCascadingSectionResizes(False)
         self.tableView.verticalHeader().setCascadingSectionResizes(True)
@@ -2366,8 +2405,45 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_22.addWidget(self.label_57)
 
+        self.widget_83 = QWidget(self.widget_43)
+        self.widget_83.setObjectName(u"widget_83")
+        self.horizontalLayout_57 = QHBoxLayout(self.widget_83)
+        self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
+        self.horizontalLayout_57.setContentsMargins(-1, 0, -1, 0)
+        self.filtrar_2 = QCheckBox(self.widget_83)
+        self.filtrar_2.setObjectName(u"filtrar_2")
+
+        self.horizontalLayout_57.addWidget(self.filtrar_2)
+
+        self.btneditafiltro_2 = QToolButton(self.widget_83)
+        self.btneditafiltro_2.setObjectName(u"btneditafiltro_2")
+        self.btneditafiltro_2.setIcon(icon28)
+        self.btneditafiltro_2.setIconSize(QSize(30, 30))
+        self.btneditafiltro_2.setPopupMode(QToolButton.ToolButtonPopupMode.DelayedPopup)
+        self.btneditafiltro_2.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonIconOnly)
+        self.btneditafiltro_2.setAutoRaise(True)
+        self.btneditafiltro_2.setArrowType(Qt.ArrowType.NoArrow)
+
+        self.horizontalLayout_57.addWidget(self.btneditafiltro_2)
+
+        self.horizontalSpacer_20 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_57.addItem(self.horizontalSpacer_20)
+
+        self.checkmostocult_2 = QRadioButton(self.widget_83)
+        self.checkmostocult_2.setObjectName(u"checkmostocult_2")
+        self.checkmostocult_2.setIcon(icon30)
+        self.checkmostocult_2.setIconSize(QSize(25, 25))
+        self.checkmostocult_2.setChecked(False)
+
+        self.horizontalLayout_57.addWidget(self.checkmostocult_2)
+
+
+        self.verticalLayout_22.addWidget(self.widget_83)
+
         self.tableView_2 = QTableView(self.widget_43)
         self.tableView_2.setObjectName(u"tableView_2")
+        self.tableView_2.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.tableView_2.setAlternatingRowColors(True)
         self.tableView_2.horizontalHeader().setCascadingSectionResizes(False)
 
@@ -2376,8 +2452,8 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_21.addWidget(self.widget_43)
 
-        icon30 = QIcon(QIcon.fromTheme(u"applications-development"))
-        self.tabrepara.addTab(self.tab_2, icon30, "")
+        icon31 = QIcon(QIcon.fromTheme(u"applications-development"))
+        self.tabrepara.addTab(self.tab_2, icon31, "")
 
         self.verticalLayout_23.addWidget(self.tabrepara)
 
@@ -2399,7 +2475,7 @@ class Ui_MainWindow(object):
         self.scrollArea_7.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 799, 138))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 551, 150))
         self.gridLayout_10 = QGridLayout(self.scrollAreaWidgetContents_4)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.label_80 = QLabel(self.scrollAreaWidgetContents_4)
@@ -2570,7 +2646,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem8 = QTableWidgetItem()
         self.repuestos.setItem(0, 0, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        __qtablewidgetitem9.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter);
+        __qtablewidgetitem9.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter)
         self.repuestos.setItem(0, 1, __qtablewidgetitem9)
         self.repuestos.setObjectName(u"repuestos")
         self.repuestos.setMinimumSize(QSize(0, 0))
@@ -2783,9 +2859,9 @@ class Ui_MainWindow(object):
 
         self.btnentsinrep = QToolButton(self.widget_80)
         self.btnentsinrep.setObjectName(u"btnentsinrep")
-        icon31 = QIcon()
-        icon31.addFile(u":/iconos/iconos/equis.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.btnentsinrep.setIcon(icon31)
+        icon32 = QIcon()
+        icon32.addFile(u":/iconos/iconos/equis.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.btnentsinrep.setIcon(icon32)
         self.btnentsinrep.setIconSize(QSize(40, 40))
         self.btnentsinrep.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
@@ -2867,9 +2943,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_24.addWidget(self.listaentregas)
 
-        icon32 = QIcon()
-        icon32.addFile(u":/iconos/iconos/entregar.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.entregas.addTab(self.tab_5, icon32, "")
+        icon33 = QIcon()
+        icon33.addFile(u":/iconos/iconos/entregar.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.entregas.addTab(self.tab_5, icon33, "")
         self.tab_6 = QWidget()
         self.tab_6.setObjectName(u"tab_6")
         self.verticalLayout_25 = QVBoxLayout(self.tab_6)
@@ -3002,7 +3078,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem13 = QTableWidgetItem()
         self.repuestose.setItem(0, 0, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
-        __qtablewidgetitem14.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter);
+        __qtablewidgetitem14.setTextAlignment(Qt.AlignTrailing|Qt.AlignVCenter)
         self.repuestose.setItem(0, 1, __qtablewidgetitem14)
         self.repuestose.setObjectName(u"repuestose")
         self.repuestose.setMinimumSize(QSize(200, 90))
@@ -3566,7 +3642,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 858, 549))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 745, 282))
         self.verticalLayout_48 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_48.setObjectName(u"verticalLayout_48")
         self.verticalLayout_48.setContentsMargins(-1, -1, 0, -1)
@@ -3768,8 +3844,8 @@ class Ui_MainWindow(object):
 
         self.btncambiografica = QToolButton(self.widget_77)
         self.btncambiografica.setObjectName(u"btncambiografica")
-        icon33 = QIcon(QIcon.fromTheme(u"go-next"))
-        self.btncambiografica.setIcon(icon33)
+        icon34 = QIcon(QIcon.fromTheme(u"go-next"))
+        self.btncambiografica.setIcon(icon34)
 
         self.horizontalLayout_53.addWidget(self.btncambiografica)
 
@@ -3867,23 +3943,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_41 = QHBoxLayout(self.page_7)
         self.horizontalLayout_41.setObjectName(u"horizontalLayout_41")
         self.listWidget = QListWidget(self.page_7)
-        icon34 = QIcon()
-        icon34.addFile(u":/iconos/iconos/big-data.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        __qlistwidgetitem = QListWidgetItem(self.listWidget)
-        __qlistwidgetitem.setIcon(icon34);
         icon35 = QIcon()
-        icon35.addFile(u":/iconos/iconos/company.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        __qlistwidgetitem1 = QListWidgetItem(self.listWidget)
-        __qlistwidgetitem1.setIcon(icon35);
+        icon35.addFile(u":/iconos/iconos/big-data.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        __qlistwidgetitem = QListWidgetItem(self.listWidget)
+        __qlistwidgetitem.setIcon(icon35)
         icon36 = QIcon()
-        icon36.addFile(u":/iconos/iconos/settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        __qlistwidgetitem2 = QListWidgetItem(self.listWidget)
-        __qlistwidgetitem2.setIcon(icon36);
-        __qlistwidgetitem2.setFlags(Qt.ItemIsSelectable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable);
+        icon36.addFile(u":/iconos/iconos/company.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        __qlistwidgetitem1 = QListWidgetItem(self.listWidget)
+        __qlistwidgetitem1.setIcon(icon36)
         icon37 = QIcon()
-        icon37.addFile(u":/iconos/iconos/acerca-de.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon37.addFile(u":/iconos/iconos/settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        __qlistwidgetitem2 = QListWidgetItem(self.listWidget)
+        __qlistwidgetitem2.setIcon(icon37)
+        __qlistwidgetitem2.setFlags(Qt.ItemIsSelectable|Qt.ItemIsDragEnabled|Qt.ItemIsUserCheckable)
+        icon38 = QIcon()
+        icon38.addFile(u":/iconos/iconos/acerca-de.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         __qlistwidgetitem3 = QListWidgetItem(self.listWidget)
-        __qlistwidgetitem3.setIcon(icon37);
+        __qlistwidgetitem3.setIcon(icon38)
         self.listWidget.setObjectName(u"listWidget")
         self.listWidget.setEnabled(True)
         self.listWidget.setMaximumSize(QSize(300, 16777215))
@@ -3994,9 +4070,9 @@ class Ui_MainWindow(object):
         self.gridLayout_29.setObjectName(u"gridLayout_29")
         self.cprep = QToolButton(self.groupBox_17)
         self.cprep.setObjectName(u"cprep")
-        icon38 = QIcon()
-        icon38.addFile(u":/iconos/iconos/cpreparaciones.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.cprep.setIcon(icon38)
+        icon39 = QIcon()
+        icon39.addFile(u":/iconos/iconos/cpreparaciones.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.cprep.setIcon(icon39)
         self.cprep.setIconSize(QSize(50, 50))
         self.cprep.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
 
@@ -4154,9 +4230,9 @@ class Ui_MainWindow(object):
         self.selarch.setToolTipDuration(-1)
         self.selarch.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.selarch.setAutoFillBackground(False)
-        icon39 = QIcon()
-        icon39.addFile(u":/iconos/iconos/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.selarch.setIcon(icon39)
+        icon40 = QIcon()
+        icon40.addFile(u":/iconos/iconos/folder.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.selarch.setIcon(icon40)
         self.selarch.setIconSize(QSize(30, 30))
 
         self.horizontalLayout_43.addWidget(self.selarch)
@@ -4195,13 +4271,13 @@ class Ui_MainWindow(object):
         self.tab_8 = QWidget()
         self.tab_8.setObjectName(u"tab_8")
         self.tab_8.setEnabled(False)
-        icon40 = QIcon(QIcon.fromTheme(u"document-open-recent"))
-        self.tabWidget.addTab(self.tab_8, icon40, "")
+        icon41 = QIcon(QIcon.fromTheme(u"document-open-recent"))
+        self.tabWidget.addTab(self.tab_8, icon41, "")
         self.tab_9 = QWidget()
         self.tab_9.setObjectName(u"tab_9")
         self.tab_9.setEnabled(False)
-        icon41 = QIcon(QIcon.fromTheme(u"document-properties"))
-        self.tabWidget.addTab(self.tab_9, icon41, "")
+        icon42 = QIcon(QIcon.fromTheme(u"document-properties"))
+        self.tabWidget.addTab(self.tab_9, icon42, "")
 
         self.verticalLayout_38.addWidget(self.tabWidget)
 
@@ -4276,11 +4352,11 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stack.setCurrentIndex(0)
+        self.stack.setCurrentIndex(2)
         self.tabregistros.setCurrentIndex(0)
         self.stackinfrep_3.setCurrentIndex(1)
-        self.stackreparaciones.setCurrentIndex(1)
-        self.tabrepara.setCurrentIndex(0)
+        self.stackreparaciones.setCurrentIndex(0)
+        self.tabrepara.setCurrentIndex(1)
         self.stackinfrep.setCurrentIndex(1)
         self.entregas.setCurrentIndex(0)
         self.stackinfrep_2.setCurrentIndex(1)
@@ -4403,18 +4479,18 @@ class Ui_MainWindow(object):
         self.groupBox_10.setTitle(QCoreApplication.translate("MainWindow", u"Repuestos:", None))
         self.label_97.setText(QCoreApplication.translate("MainWindow", u"   Total:", None))
         ___qtablewidgetitem = self.repuestos_2.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Repuesto:", None));
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Repuesto:", None))
         ___qtablewidgetitem1 = self.repuestos_2.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Precio:", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Precio:", None))
         ___qtablewidgetitem2 = self.repuestos_2.verticalHeaderItem(0)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"1.", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"1.", None))
 
         __sortingEnabled = self.repuestos_2.isSortingEnabled()
         self.repuestos_2.setSortingEnabled(False)
         ___qtablewidgetitem3 = self.repuestos_2.item(0, 0)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"pendiente", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"pendiente", None))
         ___qtablewidgetitem4 = self.repuestos_2.item(0, 1)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"$0", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"$0", None))
         self.repuestos_2.setSortingEnabled(__sortingEnabled)
 
         self.anadir_2.setText(QCoreApplication.translate("MainWindow", u" A\u00f1adir ", None))
@@ -4459,8 +4535,20 @@ class Ui_MainWindow(object):
         self.fechaentrega_2.setSpecialValueText(QCoreApplication.translate("MainWindow", u"--Seleccione la fecha de reparaci\u00f3n--", None))
         self.tabregistros.setTabText(self.tabregistros.indexOf(self.tab_10), QCoreApplication.translate("MainWindow", u"Informaci\u00f3n", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Equipos disponibles para revisi\u00f3n:", None))
+        self.filtrar.setText(QCoreApplication.translate("MainWindow", u"Filtrar", None))
+        self.btneditafiltro.setText(QCoreApplication.translate("MainWindow", u"cambiar", None))
+#if QT_CONFIG(tooltip)
+        self.checkmostocult.setToolTip(QCoreApplication.translate("MainWindow", u"Mostrar Ocultos", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkmostocult.setText("")
         self.tabrepara.setTabText(self.tabrepara.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Revisiones", None))
         self.label_57.setText(QCoreApplication.translate("MainWindow", u"Equipos disponibles para reparaci\u00f3n:", None))
+        self.filtrar_2.setText(QCoreApplication.translate("MainWindow", u"Filtrar", None))
+        self.btneditafiltro_2.setText(QCoreApplication.translate("MainWindow", u"cambiar", None))
+#if QT_CONFIG(tooltip)
+        self.checkmostocult_2.setToolTip(QCoreApplication.translate("MainWindow", u"Mostrar Ocultos", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkmostocult_2.setText("")
         self.tabrepara.setTabText(self.tabrepara.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Reparaciones", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Informacion del equipo:", None))
         self.label_80.setText(QCoreApplication.translate("MainWindow", u"Numero de Serie:", None))
@@ -4475,18 +4563,18 @@ class Ui_MainWindow(object):
         self.totalrep.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.label_56.setText(QCoreApplication.translate("MainWindow", u"   Total:", None))
         ___qtablewidgetitem5 = self.repuestos.horizontalHeaderItem(0)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Repuesto:", None));
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Repuesto:", None))
         ___qtablewidgetitem6 = self.repuestos.horizontalHeaderItem(1)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Precio:", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Precio:", None))
         ___qtablewidgetitem7 = self.repuestos.verticalHeaderItem(0)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"1.", None));
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"1.", None))
 
         __sortingEnabled1 = self.repuestos.isSortingEnabled()
         self.repuestos.setSortingEnabled(False)
         ___qtablewidgetitem8 = self.repuestos.item(0, 0)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"pendiente", None));
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"pendiente", None))
         ___qtablewidgetitem9 = self.repuestos.item(0, 1)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"$0", None));
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"$0", None))
         self.repuestos.setSortingEnabled(__sortingEnabled1)
 
         self.anadir.setText(QCoreApplication.translate("MainWindow", u" A\u00f1adir ", None))
@@ -4517,18 +4605,18 @@ class Ui_MainWindow(object):
         self.totalrepe.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.label_66.setText(QCoreApplication.translate("MainWindow", u"   Total:", None))
         ___qtablewidgetitem10 = self.repuestose.horizontalHeaderItem(0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Repuesto:", None));
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Repuesto:", None))
         ___qtablewidgetitem11 = self.repuestose.horizontalHeaderItem(1)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Precio:", None));
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Precio:", None))
         ___qtablewidgetitem12 = self.repuestose.verticalHeaderItem(0)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"1.", None));
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"1.", None))
 
         __sortingEnabled2 = self.repuestose.isSortingEnabled()
         self.repuestose.setSortingEnabled(False)
         ___qtablewidgetitem13 = self.repuestose.item(0, 0)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"pendiente", None));
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"pendiente", None))
         ___qtablewidgetitem14 = self.repuestose.item(0, 1)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"$0", None));
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"$0", None))
         self.repuestose.setSortingEnabled(__sortingEnabled2)
 
         self.anadire.setText(QCoreApplication.translate("MainWindow", u" A\u00f1adir ", None))
@@ -4596,13 +4684,13 @@ class Ui_MainWindow(object):
         __sortingEnabled3 = self.listWidget.isSortingEnabled()
         self.listWidget.setSortingEnabled(False)
         ___qlistwidgetitem = self.listWidget.item(0)
-        ___qlistwidgetitem.setText(QCoreApplication.translate("MainWindow", u"Almacenamiento", None));
+        ___qlistwidgetitem.setText(QCoreApplication.translate("MainWindow", u"Almacenamiento", None))
         ___qlistwidgetitem1 = self.listWidget.item(1)
-        ___qlistwidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
+        ___qlistwidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Empresa", None))
         ___qlistwidgetitem2 = self.listWidget.item(2)
-        ___qlistwidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None));
+        ___qlistwidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         ___qlistwidgetitem3 = self.listWidget.item(3)
-        ___qlistwidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Acerca de", None));
+        ___qlistwidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Acerca de", None))
         self.listWidget.setSortingEnabled(__sortingEnabled3)
 
         self.groupBox_16.setTitle(QCoreApplication.translate("MainWindow", u"En la Nuve", None))

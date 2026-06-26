@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1044</width>
-    <height>674</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -663,7 +663,7 @@ QWidget#centralwidget QPushButton:checked {
           </size>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <property name="maximumSize">
@@ -732,7 +732,7 @@ QWidget#centralwidget QPushButton:checked {
                    <x>0</x>
                    <y>0</y>
                    <width>1458</width>
-                   <height>116</height>
+                   <height>109</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
@@ -1657,8 +1657,8 @@ border-radius: 15px</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>849</width>
-                   <height>411</height>
+                   <width>603</width>
+                   <height>355</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_40">
@@ -2212,8 +2212,8 @@ border-radius: 15px</string>
                             <rect>
                              <x>0</x>
                              <y>0</y>
-                             <width>372</width>
-                             <height>370</height>
+                             <width>288</width>
+                             <height>402</height>
                             </rect>
                            </property>
                            <layout class="QFormLayout" name="formLayout_2">
@@ -2394,8 +2394,8 @@ border-radius: 15px</string>
                                    <rect>
                                     <x>0</x>
                                     <y>0</y>
-                                    <width>170</width>
-                                    <height>268</height>
+                                    <width>159</width>
+                                    <height>259</height>
                                    </rect>
                                   </property>
                                   <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -3188,9 +3188,9 @@ border-radius: 15px</string>
                   <property name="geometry">
                    <rect>
                     <x>0</x>
-                    <y>-221</y>
-                    <width>813</width>
-                    <height>1157</height>
+                    <y>0</y>
+                    <width>636</width>
+                    <height>1142</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_37">
@@ -4211,8 +4211,8 @@ border-radius: 15px</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>230</width>
-                                 <height>268</height>
+                                 <width>159</width>
+                                 <height>259</height>
                                 </rect>
                                </property>
                                <layout class="QVBoxLayout" name="verticalLayout_36">
@@ -4659,7 +4659,7 @@ border-radius: 15px</string>
            <item>
             <widget class="QStackedWidget" name="stackreparaciones">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="page_10">
               <layout class="QVBoxLayout" name="verticalLayout_23">
@@ -4718,9 +4718,96 @@ border-radius: 15px</string>
                     </widget>
                    </item>
                    <item>
+                    <widget class="QWidget" name="widget_81" native="true">
+                     <layout class="QHBoxLayout" name="horizontalLayout_56">
+                      <property name="topMargin">
+                       <number>0</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <widget class="QCheckBox" name="filtrar">
+                        <property name="text">
+                         <string>Filtrar</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QToolButton" name="btneditafiltro">
+                        <property name="text">
+                         <string>cambiar</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="../../recursos/recursos.qrc">
+                          <normaloff>:/iconos/iconos/pen.ico</normaloff>:/iconos/iconos/pen.ico</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>30</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="popupMode">
+                         <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+                        </property>
+                        <property name="toolButtonStyle">
+                         <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
+                        </property>
+                        <property name="autoRaise">
+                         <bool>true</bool>
+                        </property>
+                        <property name="arrowType">
+                         <enum>Qt::ArrowType::NoArrow</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_18">
+                        <property name="orientation">
+                         <enum>Qt::Orientation::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QRadioButton" name="checkmostocult">
+                        <property name="toolTip">
+                         <string>Mostrar Ocultos</string>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="../../recursos/recursos.qrc">
+                          <normaloff>:/iconos/iconos/ojo.png</normaloff>:/iconos/iconos/ojo.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>25</width>
+                          <height>25</height>
+                         </size>
+                        </property>
+                        <property name="checked">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
                     <widget class="QTableView" name="tableView">
                      <property name="enabled">
                       <bool>true</bool>
+                     </property>
+                     <property name="contextMenuPolicy">
+                      <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
                      </property>
                      <property name="alternatingRowColors">
                       <bool>true</bool>
@@ -4769,7 +4856,94 @@ border-radius: 15px</string>
                        </widget>
                       </item>
                       <item>
+                       <widget class="QWidget" name="widget_83" native="true">
+                        <layout class="QHBoxLayout" name="horizontalLayout_57">
+                         <property name="topMargin">
+                          <number>0</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>0</number>
+                         </property>
+                         <item>
+                          <widget class="QCheckBox" name="filtrar_2">
+                           <property name="text">
+                            <string>Filtrar</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QToolButton" name="btneditafiltro_2">
+                           <property name="text">
+                            <string>cambiar</string>
+                           </property>
+                           <property name="icon">
+                            <iconset resource="../../recursos/recursos.qrc">
+                             <normaloff>:/iconos/iconos/pen.ico</normaloff>:/iconos/iconos/pen.ico</iconset>
+                           </property>
+                           <property name="iconSize">
+                            <size>
+                             <width>30</width>
+                             <height>30</height>
+                            </size>
+                           </property>
+                           <property name="popupMode">
+                            <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+                           </property>
+                           <property name="toolButtonStyle">
+                            <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
+                           </property>
+                           <property name="autoRaise">
+                            <bool>true</bool>
+                           </property>
+                           <property name="arrowType">
+                            <enum>Qt::ArrowType::NoArrow</enum>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="horizontalSpacer_20">
+                           <property name="orientation">
+                            <enum>Qt::Orientation::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="checkmostocult_2">
+                           <property name="toolTip">
+                            <string>Mostrar Ocultos</string>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="icon">
+                            <iconset resource="../../recursos/recursos.qrc">
+                             <normaloff>:/iconos/iconos/ojo.png</normaloff>:/iconos/iconos/ojo.png</iconset>
+                           </property>
+                           <property name="iconSize">
+                            <size>
+                             <width>25</width>
+                             <height>25</height>
+                            </size>
+                           </property>
+                           <property name="checked">
+                            <bool>false</bool>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
                        <widget class="QTableView" name="tableView_2">
+                        <property name="contextMenuPolicy">
+                         <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+                        </property>
                         <property name="alternatingRowColors">
                          <bool>true</bool>
                         </property>
@@ -4828,8 +5002,8 @@ border-radius: 15px</string>
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>799</width>
-                       <height>138</height>
+                       <width>551</width>
+                       <height>150</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_10">
@@ -7283,8 +7457,8 @@ border-radius: 10px;
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>858</width>
-                <height>549</height>
+                <width>745</width>
+                <height>461</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_48">

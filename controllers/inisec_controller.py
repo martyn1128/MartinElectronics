@@ -16,10 +16,16 @@ class Inicia_secion(QMainWindow):
         self.inicio = Ui_MainWindow()
         self.inicio.setupUi(self)
         # Botones de inicio
+        self._conectareventos()
+
+    def _conectareventos(self):
         self.inicio.checkvercont.stateChanged.connect(self.ver_cont)
         self.inicio.btniniciar.clicked.connect(self.loguin)
         self.inicio.btnregistrarse.clicked.connect(self.reg.emit)
+        self.inicio.usuario.returnPressed.connect(self.inicio.cont.setFocus)
+        self.inicio.usuario.textChanged.connect(self.valida_usuario)
         self.inicio.cont.editingFinished.connect(lambda: self.inicio.checkvercont.setChecked(False))
+        self.inicio.cont.returnPressed.connect(self.inicio.btniniciar.click)
 
 
         #self.inicio.show()
@@ -37,7 +43,12 @@ class Inicia_secion(QMainWindow):
                 self.user = (cont[2],cont[1])
                 self.cambio_vent.emit()
             else :
-                self.inicio.mensaje.setText("  Usuario o contraseña incorrecta")
+                if " " in self.inicio.usuario.text():
+                    self.inicio.mensaje.setText("El ususario no puede tener espacios")
+                    self.inicio.mensaje.setStyleSheet("color: rgb(255, 255, 0);")
+                else:
+                    self.inicio.mensaje.setText("  Usuario o contraseña incorrecta")
+                    self.inicio.mensaje.setStyleSheet("")
         else:
             if usuario:
                 self.inicio.cont.setFocus()
@@ -64,3 +75,11 @@ class Inicia_secion(QMainWindow):
             s.inicio.cont.setEchoMode(QLineEdit.EchoMode.Normal)
         else:
             s.inicio.cont.setEchoMode(QLineEdit.EchoMode.Password)
+
+    def valida_usuario(self):
+        if " " in self.inicio.usuario.text():
+            self.inicio.mensaje.setText("El ususario no puede tener espacios")
+            self.inicio.mensaje.setStyleSheet("color: rgb(255, 255, 0);")
+        else:
+            self.inicio.mensaje.setText("")
+            self.inicio.mensaje.setStyleSheet("")

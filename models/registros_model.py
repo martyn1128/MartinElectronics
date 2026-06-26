@@ -2,8 +2,8 @@
 from .db import DB
 
 class RegistroModel:
-
-    def query_todos(self):
+    @staticmethod
+    def query_todos():
         return '''
                SELECT r.id       AS registro_id, \
                       e.id, \
@@ -26,7 +26,8 @@ class RegistroModel:
                ORDER BY r.id \
                '''
 
-    def numero(self):
+    @staticmethod
+    def numero():
         con = DB().connect()
         cur = con.cursor()
         cur.execute("SELECT COUNT(id) FROM registros")
@@ -34,7 +35,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def ultimo(self):
+    @staticmethod
+    def ultimo():
         con = DB().connect()
         cur = con.cursor()
         cur.execute("SELECT id FROM registros ORDER BY id DESC LIMIT 1;")
@@ -42,7 +44,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def obtener_todos(self):
+    @staticmethod
+    def obtener_todos():
         con = DB().connect()
         cur = con.cursor()
 
@@ -70,7 +73,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def obtener_por_cliente(self, cid):
+    @staticmethod
+    def obtener_por_cliente(cid):
         con = DB().connect()
         cur = con.cursor()
 
@@ -99,7 +103,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def obtener_por_idr(self, idr):
+    @staticmethod
+    def obtener_por_idr(idr):
         con = DB().connect()
         cur = con.cursor()
 
@@ -128,7 +133,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def obtener_todo_por_id(self, id):
+    @staticmethod
+    def obtener_todo_por_id(id):
         con = DB().connect()
         cur = con.cursor()
 
@@ -141,19 +147,18 @@ class RegistroModel:
         con.close()
         return res
 
-    def insertar(self, data):
+    @staticmethod
+    def insertar(data):
         con = DB().connect()
         cur = con.cursor()
 
         cur.execute("""
                     INSERT INTO registros (equipo_id,
-                                           usuario_id,
                                            problema,
                                            accesorios,
                                            info_adicional,
                                            estatus,
                                            fecha_llegada,
-                                           fecha_entrega,
                                            usuario_id)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """, data)
@@ -165,25 +170,27 @@ class RegistroModel:
         con.commit()
         con.close()
 
-    def actualizar(self, equipo_id, data):
+    @staticmethod
+    def actualizar(equipo_id, data):
         con = DB().connect()
         cur = con.cursor()
 
         cur.execute("""
                     UPDATE registros
-                    SET problema       = ?,
-                        accesorios     = ?,
-                        info_adicional = ?,
-                        estatus        = ?,
-                        fecha_llegada  = ?,
-                        usuario_id     = ?
+                    SET problema = ?,
+                       accesorios = ?,
+                       info_adicional = ?,
+                       estatus = ?,
+                       fecha_llegada = ?,
+                       usuario_id = ?
                     WHERE equipo_id = ?
                     """, (*data, equipo_id))
 
         con.commit()
         con.close()
 
-    def actualizar_estatus(self, reg_id=None, rep_id = None, estatus="", fe=""):
+    @staticmethod
+    def actualizar_estatus(reg_id=None, rep_id = None, estatus="", fe=""):
         con = DB().connect()
         cur = con.cursor()
         if rep_id:
@@ -198,14 +205,15 @@ class RegistroModel:
         else:
             cur.execute("""
                         UPDATE registros
-                        SET estatus        = ?
+                        SET estatus = ?
                         WHERE id = ?
                         """, (estatus, reg_id))
 
         con.commit()
         con.close()
 
-    def existe(self, equipo_id):
+    @staticmethod
+    def existe(equipo_id):
         con = DB().connect()
         cur = con.cursor()
 
@@ -215,7 +223,8 @@ class RegistroModel:
         con.close()
         return res is not None
 
-    def obtener_todos_por_idequipo(self, id):
+    @staticmethod
+    def obtener_todos_por_idequipo(id):
         con = DB().connect()
         cur = con.cursor()
 
@@ -229,7 +238,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def obtener_todos_por_equipo(self, equipo_id):
+    @staticmethod
+    def obtener_todos_por_equipo(equipo_id):
         con = DB().connect()
         cur = con.cursor()
 
@@ -257,7 +267,8 @@ class RegistroModel:
         con.close()
         return res
 
-    def eliminar(self, registro_id):
+    @staticmethod
+    def eliminar(registro_id):
         con = DB().connect()
         cur = con.cursor()
 
@@ -285,7 +296,8 @@ class RegistroModel:
         finally:
             con.close()
 
-    def entregas(self):
+    @staticmethod
+    def entregas():
         con = DB().connect()
         cur = con.cursor()
 
